@@ -1,0 +1,103 @@
+-- Final review ---------
+-- Trắc nghiệm 20 -30 : short answer
+
+TỰ LUẬN
+-- 1 câu mảng 2 chiều, 1 câu mảng động( mảng con trỏ), một câu về struct, 
+1 -2 câu nhỏ là về Danh sách liên kết đơn, cây, stack, queue
+
+
+=== MẢNG 2 CHIỀU ====
+int a[10]; mảng 1 chiều a có tối đa 10 phân tử
+int a[3][4]; //  mảng 2 chiều tối 3 dòng và 4 cột
+int a[][][], b[][][][];
+
+duyệt mảng 2 chiều mình sẽ duyệt trên từng dòng, mỗi dòng sẽ duyệt hết các cột
+for(int i = 0; i < 3; ++i)// cha : 0 - 2
+{
+    for(int j = 0; j < 4; ++j) // con - là các cột trên 1 dòng
+    {
+        a[i][j];
+    }
+}
+
+--- Công thức random 1 số nguyên a trong đoạn [min, max]
+        a = min + rand() % (max - min + 1);
+ === NHỮNG XÌ KIUU CẦN NHỚ TRÊN MẢNG 2 CHIỀU ===
+    1. Nhập, xuất mảng 2 chiều
+    2.Thêm, xóa trên mảng 2 chiều
+    3. Duyệt mảng, check điều kiện, ghi nhớ những trường hợp đặc biệt của mảng 2 chiều 
+
+
+
+=== Hoán vị 2 dòng hoặc 2 cột bản chất là duyệt hết dòng / cột cột đó rồi hoán vị từng phần tử trong nó cho nhau
+
+// local variable/ global variable
+
+// Truyền tham chiếu : khi mà có sự thay đổi giá trị của biến đó ( nhập, tăng giá trị , giảm đi) [[&, *]]
+============================ CON TRỎ ============================
+
+int a, char b,... 
+Con trỏ là gì: Con trỏ cũng là một biến chứa địa chỉ của một giá trị nào đó:
+int *p; // con trỏ p chứa địa chỉ của một biến số nguyên
+Ta có thể thông qua con trỏ để mà thay đổi giá trị của biến
+
+! con trỏ sẽ chứa 3 miền giá trị:
++ 1 là : giá trị  địa chỉ của biến mà nó trỏ tới
++ 2 là : giá trị của biến mà nó trỏ tới
++ Cuối cùng là giá trị địa chỉ thực của con trỏ
+
+=> Khi mà con trỏ đã trỏ tới 1 địa chỉ nào đó thì nó có thể thay đổi giá trị tại địa chỉ đó
+( 
+    a = 3
+    *p = &a;
+    (*p) += 5;
+    => *p = 8
+    => a = 8
+)
+
+Khi mà dùng dấu = 
+Giá trị = giá trị
+ Địa chỉ  = Địa chỉ 
+
+ ==================== Mảng con trỏ =====================
+
+ int a[MAX], b[MAX][MAX] : mảng tĩnh
+ trong mảng tĩnh ta bị giới hạn số lượng các phần tử
+
+ mảng động là mảng có thể thay đổi kích thước các số lượng phân tử Mảng
+ hàm cấp phát bộ nhớ cho con trỏ:
+    + malloc, calloc, realloc
+
+ int *a = malloc();
+
+ // malloc và calloc thì đều có thể cấp phát một vùng nhớ mới cho con trỏ bên bộ nhớ heap
+ // realloc nó vừa có thể cấp phát mà vừa có thể thay đổi kích cỡ của mảng con trỏ
+
+
+ mảng động được cấp phát bởi lập trình viên bên bộ nhớ heap, nên là sau khi 
+ sử dụng xong mình sẽ phải xóa những mảng bộ nhớ mà mình đã cấp phát
+ 
+
+ ============ Struct ============ 
+
+ Lưu thông itn 1 sinh viên :
+ Tên , sđt, ngày sinh, điểm toán, điểm lý, điểm hóa ...
+
+
+ => Để có thể lưu trữ tất cả những thằng giá trị liên quan đến một dạng thành phần nào đó( sinh viên, phân số)
+ người ta gom tất cả các biến vào một kiểu dữ liệu mới được gọi tên là struct'
+ => Có thể hiểu struct như một cái túi ni lông đổ đầy đồ linh tinh vào trong đó 
+ Vd: phân số : chứa mẫu và tử số
+
+
+============== DANH SÁCH LIÊN KẾT ĐƠN ==============
+------ Mảng  : chứa những phần tử cùng kiểu dữ liệu nằm liên tiếp nhau trong bộ nhớ máy tính
+    ƯU ĐIỂM Mảng  : - truy xuất 1 phần tử nhanh  Vd printf("%d", a[99]);
+    NHƯỢC ĐIỂM : Xóa, thêm phần tử rất khó khăn, bản chất chính là dịch chuyển các phần tử
+    VD mảng có 9999 phần tử mà mình muốn xóa thằng a[1]
+    ƯU ĐIỂM thêm và xóa một phần tử nhanh chóng
+    NHƯỢC ĐIỂM : truy xuất một phần tử nào đó trong danh sách rất lâu
+                - Tốn nhiều bộ nhớ hơn
+
+    Mảng thì chứa các data( phần tử mảng)
+    Còn DSLKD  thì không chỉ chứa data mà nó còn chứa cả các node để lưu địa chỉ của thằng kế tiếp 
