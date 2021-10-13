@@ -31,6 +31,7 @@ int main(int argc, char *argv[]) {
 	{
 		int nullspace = height - i;
 		int innerSpace = starnum - (border * 2);
+		
 		if(i >= day)
 		{
 			for(int j = 1; j <= bigestdis; ++j)
