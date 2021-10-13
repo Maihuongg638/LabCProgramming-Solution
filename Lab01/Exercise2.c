@@ -36,5 +36,6 @@ int main(int argc, char *argv[]) {
 	printf("\nMax : %d", max);
 	printf("\nMin : %d", min);
 
+	
 	return 0;
 }
