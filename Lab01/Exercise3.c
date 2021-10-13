@@ -34,6 +34,7 @@ int main(int argc, char *argv[]) {
 				}
 			}
 			if(check == 0) printf("%2d", i);
+			
 		}
 	}
 	
