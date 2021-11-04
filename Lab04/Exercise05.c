@@ -45,6 +45,7 @@ void Ex5(int arr[], int m, int n){
         int temp = MinRow(a, n, i);
         max = temp > max ? temp : max;
     }
+    
     printf("%d", max);
 }
 
